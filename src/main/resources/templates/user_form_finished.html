@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>users</title>
+    </head>
+    <body>
+        <h1 th:text="${'User ' + operation + '!'}"></h1>
+
+        <p th:text="${'UUID: ' + user.id}"></p>
+        <p th:text="${'Username: ' + user.name}"></p>
+        <p th:text="${'Age: ' + user.age}"></p>
+
+        <p><a href="/">Back.</a></p>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>users</title>
+    </head>
+    <body>
+        <p th:text="${'Deleting ' + user.name + ' (' + user.id + ') user'}"></p>
+
+        <fieldset>
+            <legend>Delete user</legend>
+
+            <h1>Final Confirmation</h1>
+            <p>Is it okay to delete this user?</p>
+
+            <form action="/delete_user" method="post">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <input type="submit" value="yes">
+            </form>
+        </fieldset>
+
+        <p><a href="/">Back.</a></p>
+    </body>
+</html>

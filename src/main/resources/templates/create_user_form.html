@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>users</title>
+    </head>
+    <body>
+        <p th:text="${'User: ' + userFormResponseDto.user_count + ' users(s)'}"></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>age</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${userFormResponseDto.users}">
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.age}"></td>
+                    <td>
+                        <a th:href="${'/update_user?id=' + user.id}"><button>Update</button></a>
+                        <a th:href="${'/delete_user?id=' + user.id}"><button>Delete</button></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <br>
+        <br>
+
+        <fieldset>
+            <legend>Create new User</legend>
+            <form action="/create_user" method="post">
+                <label>Username: <input type="text" name="name" maxlength="100" required></label><br>
+                <label>Age: <input type="number" name="age" max="1000" required></label><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </body>
+</html>
